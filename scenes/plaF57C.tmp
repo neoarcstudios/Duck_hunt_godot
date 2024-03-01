@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5fkv6guyhvrm"]
+
+[ext_resource type="Texture2D" uid="uid://b1jp460ykx4m8" path="res://Art Assets/Characters/Duck/Duck (16x16).png" id="1_mwc4h"]
+
+[sub_resource type="GDScript" id="GDScript_y6fo0"]
+script/source = "extends CharacterBody2D
+
+var grav = 10
+var speed = 300
+
+func _process(delta):
+	if !is_on_floor():
+		velocity.y = velocity.y + grav
+	if Input.is_action_pressed(\"ui_right\"):
+		velocity.x = speed
+	elif Input.is_action_pressed(\"ui_left\"):
+		velocity.x = -speed
+	else:
+		velocity.x = 0
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oeln1"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D"]
+script = SubResource("GDScript_y6fo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oeln1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mwc4h")
+hframes = 2

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://du4qywyqo1t81"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="ColorRect"]
+position = Vector2(576, 328)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+editor_draw_limits = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 1088.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Você ganhou!"
+horizontal_alignment = 1
+vertical_alignment = 1

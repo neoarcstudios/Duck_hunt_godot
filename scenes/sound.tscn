@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://doxymium8iy44"]
+
+[ext_resource type="AudioStream" uid="uid://bu1pgaumpemam" path="res://Art Assets/Sound/sound.mp3" id="1_qbcuf"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_qbcuf")

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxibln5krtbxe"]
+
+[ext_resource type="Texture2D" uid="uid://ddtwk86e0m6dy" path="res://Art Assets/Hazards/Spikes.png" id="1_tdmq4"]
+[ext_resource type="Script" path="res://scenes/espinhos.gd" id="1_tj0np"]
+[ext_resource type="AudioStream" uid="uid://bu1pgaumpemam" path="res://Art Assets/Sound/sound.mp3" id="3_ott0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30as1"]
+size = Vector2(48, 8)
+
+[node name="espinhos" type="Area2D"]
+script = ExtResource("1_tj0np")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_30as1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tdmq4")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-16, 0)
+texture = ExtResource("1_tdmq4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+texture = ExtResource("1_tdmq4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ott0k")
+volume_db = -28.374
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="hidden" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_hidden"]
+[connection signal="tree_entered" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_tree_entered"]
